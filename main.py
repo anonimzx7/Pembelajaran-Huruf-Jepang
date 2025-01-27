@@ -170,6 +170,21 @@ def mode_tanpa_pengulangan(group_data):
     if not remaining:
         print("\nSemua huruf sudah ditampilkan.")
 
+def mode_tanpa_pengulangan_hk():
+    combined_list = get_combined_list()
+    remaining = combined_list[:] # Menyalin daftar
+    random.shuffle(remaining) # Mengacak daftar
+
+    while remaining: # Selama masih ada elemen tersisa
+        romaji, hiragana, katakana = remaining.pop() # Mengambil elemen terakhir dari remaining
+        print(f"\nHuruf: {hiragana} (Hiragana) | {katakana} (Katakana) | Romaji: {romaji}")
+        action = input("Tekan Enter untuk huruf berikutnya atau ketik 'q' untuk keluar: ").strip().lower()
+        if action == "q":
+            break
+
+    if not remaining:
+        print("\nSemua huruf sudah ditampilkan.")
+
 def display_group(group, language_groups, is_random=False):
     if group not in language_groups:
         print(f"Tidak ditemukan grup '{group}'")
@@ -328,8 +343,9 @@ def display_sub_menu(option):
 def display_sub_menu_hk(option):
     print(f"\n=== {option.capitalize()} Menu ===")
     print("1. Huruf Acak")
-    print("5. Huruf Group")
-    print("6. Huruf Group Acak")
+    print("2. Random Tanpa Pengulanga ")
+    print("3. Huruf Group")
+    print("4. Huruf Group Acak")
     print("0. Kembali")
 
 def main():
@@ -352,9 +368,11 @@ def main():
 
                 if sub_choice == "1":
                     mode_acak_hk()
-                elif sub_choice == "5":
+                elif sub_choice == "2":
+                    mode_tanpa_pengulangan_hk()
+                elif sub_choice == "3":
                     choose_category_hk(is_random=False)
-                elif sub_choice == "6":
+                elif sub_choice == "4":
                     choose_category_hk(is_random=True)
                 elif sub_choice == "0":
                     break
