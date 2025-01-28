@@ -427,7 +427,7 @@ kanji_levels = {
     'N4': kanji_n4,
     'N3': kanji_n3,
     'N2': kanji_n2,
-    'N1': kanji_n1
+    'N1': kanji_n1,
 }
 
 
@@ -449,10 +449,15 @@ def tampilkan_kanji():
             continue
 
         if pilihan_level == 0:
-            break
+            return  # Kembali ke menu utama
         elif 1 <= pilihan_level <= 5:
-            level_terpilih = f'N{5 - pilihan_level}'  # Mengubah pilihan level menjadi N5, N4, dll
+            # Mengambil level sesuai pilihan: N5 untuk pilihan 1, N4 untuk 2, dll
+            level_terpilih = f'N{6 - pilihan_level}'
             kanji_terpilih = kanji_levels.get(level_terpilih)
+
+            if kanji_terpilih is None:
+                print(f"Data untuk level {level_terpilih} tidak ditemukan.")
+                continue
         else:
             print("Pilihan tidak valid.")
             continue
