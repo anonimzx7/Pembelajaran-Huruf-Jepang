@@ -229,9 +229,9 @@ def choose_category(language_groups, is_random):
     while True:
         clear_screen()
         print("Masukkan salah satu kategori berikut:")
-        print("a, ka, sa, ta, na, ha, ma, ya, ra, wa")
-        print("Ketik 'q' untuk kembali")
-        group = input("\nMasukkan kategori: ").strip().lower()
+        print("[ a, ka, sa, ta, na, ha, ma, ya, ra, wa ]")
+        print("\nKetik 'q' untuk kembali")
+        group = input("Masukkan kategori: ").strip().lower()
         if group in ["q"]:
             return
         display_group(group, language_groups, is_random)
@@ -240,9 +240,9 @@ def choose_category_hk(is_random):
     while True:
         clear_screen()
         print("Masukkan salah satu kategori berikut:")
-        print("a, ka, sa, ta, na, ha, ma, ya, ra, wa")
-        print("Ketik 'q' untuk kembali")
-        group = input("\nMasukkan kategori: ").strip().lower()
+        print("[ a, ka, sa, ta, na, ha, ma, ya, ra, wa ]")
+        print("\nKetik 'q' untuk kembali")
+        group = input("Masukkan kategori: ").strip().lower()
         if group in ["q"]:
             return
         display_group_hk(group, is_random)
