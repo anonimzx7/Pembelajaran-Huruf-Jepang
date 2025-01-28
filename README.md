@@ -13,4 +13,9 @@ Cara install:
   - pip install python
   - pkg install git (y/n pilih y)
   - git clone https://github.com/anonimzx7/Pembelajaran-Huruf-Jepang.git
-  - 
+  - ls
+  - cd Pembelajaran-Huruf-Jepang
+  - ls
+  - python main.py
+
+Happy Learning
