@@ -71,13 +71,15 @@ kanji = {
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-marked = {"hiragana": [], "katakana": [], "kanji": [], "hiragana_katakana": []}  # Save huruf ditandai
+# marked = {"hiragana": [], "katakana": [], "kanji": [], "hiragana_katakana": []}  # Save huruf ditandai
 
 def get_combined_list():
     combined = []
     for key in hiragana_groups:
         if key in katakana_groups:
-            combined.extend([(h_romaji, h_char, k_char) for (h_romaji, h_char), (_, k_char) in zip(hiragana_groups[key], katakana_groups[key])])
+            combined.extend([
+                (h_romaji, h_char, k_char)
+                for (h_romaji, h_char), (_, k_char) in zip(hiragana_groups[key], katakana_groups[key])])
     return combined
 
 def get_flat_list(group_data):
@@ -87,17 +89,12 @@ def get_flat_list(group_data):
 def mode_acak(group_data, nama_huruf):
     huruf = get_flat_list(group_data)
     while True:
+        clear_screen()
         romaji, char = random.choice(huruf)
         print(f"\nHuruf: {char} (Romaji: {romaji})")
-        print("Tekan Enter untuk huruf baru atau ketik 't' untuk menandai huruf ini.")
+        print("Tekan Enter untuk huruf baru atau ketik 't' untuk berhenti.")
         action = input("Aksi: ").strip().lower()
-        if action == "t":
-            if (romaji, char) not in marked[nama_huruf]:
-                marked[nama_huruf].append((romaji, char))
-                print(f"{char} ({romaji}) telah ditandai.")
-            else:
-                print(f"{char} ({romaji}) sudah ditandai sebelumnya.")
-        elif action == "":
+        if action == "":
             continue
         else:
             break
@@ -105,63 +102,70 @@ def mode_acak(group_data, nama_huruf):
 def mode_acak_hk():
     combined_list = get_combined_list()
     while True:
+        clear_screen()
         romaji, hiragana, katakana = random.choice(combined_list)
         print(f"\nHuruf: {hiragana} (Hiragana) | {katakana} (Katakana) | Romaji: {romaji}")
-        print("Tekan Enter untuk huruf baru atau ketik 't' untuk menandai huruf ini.")
+        print("Tekan Enter untuk huruf baru atau ketik 't' untuk berhenti.")
         action = input("Aksi: ").strip().lower()
-        if action == "t":
-            if (romaji, hiragana, katakana) not in marked["hiragana_katakana"]:
-                marked["hiragana_katakana"].append((romaji, hiragana, katakana))
-                print(f"{hiragana} | {katakana} ({romaji}) telah ditandai.")
-            else:
-                print(f"{hiragana} | {katakana} ({romaji}) sudah ditandai sebelumnya.")
-        elif action == "":
+        if action == "":
             continue
         else:
             break
 
 def mode_vokal(group_data, nama_huruf):
-    huruf = get_flat_list(group_data)
-    while True:
-        romaji, _ = random.choice(huruf)
-        print(f"\nHuruf: {romaji}")
-        print("Tekan Enter untuk huruf baru atau ketik 't' untuk menandai huruf ini.")
-        action = input("Aksi: ").strip().lower()
-        if action == "t":
-            if romaji not in [mark[0] for mark in marked[nama_huruf]]:
-                marked[nama_huruf].append((romaji, None))
-                print(f"{romaji} telah ditandai.")
-            else:
-                print(f"{romaji} sudah ditandai sebelumnya.")
-        elif action == "":
-            continue
-        else:
+    huruf = get_flat_list(group_data)  # Asumsikan ini mengembalikan daftar pasangan (romaji, karakter)
+    remaining = huruf[:]  # Salin daftar huruf untuk pengacakan
+    random.shuffle(remaining)  # Acak daftar huruf
+    while remaining:
+        clear_screen()
+        romaji, char = remaining.pop()  # Ambil elemen terakhir dari daftar yang diacak
+        print(f"\nHuruf {nama_huruf}: {romaji}")
+        action = input("Tekan Enter untuk huruf berikutnya atau ketik 'q' untuk keluar: ").strip().lower()
+        if action == "q":
             break
+    if not remaining:
+        print("\nSemua huruf sudah ditampilkan.")
 
-def mode_ditandai(nama_huruf):
-    if not marked[nama_huruf]:
-        print("\nTidak ada huruf yang ditandai.")
-    else:
-        print("\nHuruf yang ditandai:")
-        for romaji, char in marked[nama_huruf]:
-            print(f"{char} (Romaji: {romaji})", end="  ")
-        print()
-        repeat = input("\nApakah Anda ingin mengulang bagian yang ditandai? (y/n): ").strip().lower()
-        if repeat == "y":
-            while True:
-                clear_screen()
-                romaji, char = random.choice(marked[nama_huruf])
-                print(f"\nHuruf: {char} (Romaji: {romaji})")
-                print("Tekan Enter untuk huruf baru atau ketik 'q' untuk keluar dari pengulangan.")
-                action = input("Aksi: ").strip().lower()
-                if action == "q":
-                    break
+def mode_abjad(group_data, nama_huruf):
+    huruf = get_flat_list(group_data)  # Asumsikan ini mengembalikan daftar pasangan (romaji, karakter)
+    remaining = huruf[:]  # Salin daftar huruf untuk pengacakan
+    random.shuffle(remaining)  # Acak daftar huruf
+    while remaining:
+        clear_screen()
+        romaji, char = remaining.pop()  # Ambil elemen terakhir dari daftar yang diacak
+        print(f"\nHuruf {nama_huruf}: {char}")
+        action = input("Tekan Enter untuk huruf berikutnya atau ketik 'q' untuk keluar: ").strip().lower()
+        if action == "q":
+            break
+    if not remaining:
+        print("\nSemua huruf sudah ditampilkan.")
+
+
+# def mode_ditandai(nama_huruf):
+#     if not marked[nama_huruf]:
+#         print("\nTidak ada huruf yang ditandai.")
+#     else:
+#         print("\nHuruf yang ditandai:")
+#         for romaji, char in marked[nama_huruf]:
+#             print(f"{char} (Romaji: {romaji})", end="  ")
+#         print()
+#         repeat = input("\nApakah Anda ingin mengulang bagian yang ditandai? (y/n): ").strip().lower()
+#         if repeat == "y":
+#             while True:
+#                 clear_screen()
+#                 romaji, char = random.choice(marked[nama_huruf])
+#                 print(f"\nHuruf: {char} (Romaji: {romaji})")
+#                 print("Tekan Enter untuk huruf baru atau ketik 'q' untuk keluar dari pengulangan.")
+#                 action = input("Aksi: ").strip().lower()
+#                 if action == "q":
+#                     break
 
 def mode_tanpa_pengulangan(group_data):
     huruf = get_flat_list(group_data)
     remaining = huruf[:]
     random.shuffle(remaining)
     while remaining:
+        clear_screen()
         romaji, char = remaining.pop()
         print(f"\nHuruf: {char} (Romaji: {romaji})")
         action = input("Tekan Enter untuk huruf berikutnya atau ketik 'q' untuk keluar: ").strip().lower()
@@ -176,6 +180,7 @@ def mode_tanpa_pengulangan_hk():
     random.shuffle(remaining) # Mengacak daftar
 
     while remaining: # Selama masih ada elemen tersisa
+        clear_screen()
         romaji, hiragana, katakana = remaining.pop() # Mengambil elemen terakhir dari remaining
         print(f"\nHuruf: {hiragana} (Hiragana) | {katakana} (Katakana) | Romaji: {romaji}")
         action = input("Tekan Enter untuk huruf berikutnya atau ketik 'q' untuk keluar: ").strip().lower()
@@ -187,6 +192,7 @@ def mode_tanpa_pengulangan_hk():
 
 def display_group(group, language_groups, is_random=False):
     if group not in language_groups:
+        clear_screen()
         print(f"Tidak ditemukan grup '{group}'")
         input("\nTekan Enter untuk kembali ke menu...")
         return
@@ -196,11 +202,13 @@ def display_group(group, language_groups, is_random=False):
         items = random.sample(items, len(items))
 
     for romaji, kana in items:
+        clear_screen()
         print(f"{romaji} - {kana}")
         input("Tekan Enter untuk melanjutkan...")
 
 def display_group_hk(group, is_random=False):
     if group not in hiragana_groups or group not in katakana_groups:
+        clear_screen()
         print(f"Tidak ditemukan grup '{group}'")
         input("\nTekan Enter untuk kembali ke menu...")
         return
@@ -213,11 +221,13 @@ def display_group_hk(group, is_random=False):
         combined = random.sample(combined, len(combined))
 
     for romaji, h_char, k_char in combined:
+        clear_screen()
         print(f"{romaji} - {h_char} (Hiragana), {k_char} (Katakana)")
         input("Tekan Enter untuk melanjutkan...")
 
 def choose_category(language_groups, is_random):
     while True:
+        clear_screen()
         print("Masukkan salah satu kategori berikut:")
         print("a, ka, sa, ta, na, ha, ma, ya, ra, wa")
         group = input("\nMasukkan kategori: ").strip().lower()
@@ -227,6 +237,7 @@ def choose_category(language_groups, is_random):
 
 def choose_category_hk(is_random):
     while True:
+        clear_screen()
         print("Masukkan salah satu kategori berikut:")
         print("a, ka, sa, ta, na, ha, ma, ya, ra, wa")
         group = input("\nMasukkan kategori: ").strip().lower()
@@ -234,8 +245,9 @@ def choose_category_hk(is_random):
             return
         display_group_hk(group, is_random)
 
-def tampilkan_kanji(kanji):
+def tampilkan_kanji(Kanji):
     while True:
+        clear_screen()
         print("\n=== Pilih Kategori Kanji ===")
         # Menampilkan daftar kategori secara dinamis
         kategori_set = list(kanji.keys())  # Mengambil kategori unik
@@ -274,7 +286,7 @@ def tampilkan_kanji(kanji):
             continue
 
         if opsi_tampil == 0:
-            break
+            return
         elif opsi_tampil == 1:
             hasil = kanji_terpilih
         elif opsi_tampil == 2:
@@ -285,6 +297,7 @@ def tampilkan_kanji(kanji):
 
         # Menampilkan hasil satu persatu
         for romaji, karakter in hasil:
+            clear_screen()
             print("\n")
             print(f"{romaji} - {karakter}")
             stop = input("Tekan Enter untuk lanjut atau ketik 'q' untuk berhenti: ")
@@ -295,34 +308,10 @@ def tampilkan_kanji(kanji):
             # Jika belum berhenti, lanjutkan perulangan untuk kategori berikutnya
             input("\nTekan Enter untuk melanjutkan ke kategori berikutnya...")
 
-def tampilkan_huruf_dalam_kategori(huruf_kategori, nama_kategori, acak):
-    # Menampilkan huruf kanji berdasarkan kategori tertentu.
-    print(f"\n=== Kanji dari Kategori '{nama_kategori.capitalize()}' ===")
-    if acak:
-        huruf_kategori = random.sample(huruf_kategori, len(huruf_kategori))  # Acak urutan
-    for romaji, kanji in huruf_kategori:
-        print(f"{romaji.capitalize()} - {kanji}")
-        input("Tekan Enter untuk lanjut...")  # Menunggu input sebelum lanjut
-    print("\nSelesai menampilkan kategori.")
-
-def tampilkan_semua_kanji(kanji, acak):
-    # Menampilkan semua huruf kanji di semua kategori.
-    print("\n=== Semua Kanji ===")
-    semua_huruf = []
-    for kategori, huruf_kategori in kanji.items():
-        semua_huruf.extend(huruf_kategori)
-    
-    if acak:
-        semua_huruf = random.sample(semua_huruf, len(semua_huruf))  # Acak urutan
-    for romaji, kanji in semua_huruf:
-        print(f"{romaji.capitalize()} - {kanji}")
-        input("Tekan Enter untuk lanjut...")  # Menunggu input sebelum lanjut
-    print("\nSelesai menampilkan semua kanji.")
-
-
 # Menu ==================================================================================================
 
 def display_menu():
+    clear_screen()
     print("\n=== Pilihan Menu ===")
     print("1. Hiragana")
     print("2. Katakana")
@@ -333,11 +322,10 @@ def display_menu():
 def display_sub_menu(option):
     print(f"\n=== {option.capitalize()} Menu ===")
     print("1. Huruf Acak")
-    print("2. Vokal Lengkap")
-    print("3. Huruf Ditandai")
-    print("4. Random Tanpa Pengulangan")
-    print("5. Huruf Group")
-    print("6. Huruf Group Acak")
+    print("2. Vokal/Abjad")
+    print("3. Random Tanpa Pengulangan")
+    print("4. Huruf Group")
+    print("5. Huruf Group Acak")
     print("0. Kembali")
 
 def display_sub_menu_hk(option):
@@ -350,7 +338,14 @@ def display_sub_menu_hk(option):
 
 def main():
     while True:
-        display_menu()
+        clear_screen()
+        print("\n=== Pilihan Menu ===")
+        print("1. Hiragana")
+        print("2. Katakana")
+        print("3. Kanji")
+        print("4. Hiragana dan Katakana")
+        print("0. Keluar")
+
         choice = input("Pilih opsi (1-4): ").strip()
 
         if choice == "1":
@@ -360,11 +355,17 @@ def main():
             group_data = katakana_groups
             nama_huruf = "katakana"
         elif choice == "3":  # Jika pilihan adalah Kanji
-            tampilkan_kanji(kanji)
+            tampilkan_kanji(kanji)  # Akan kembali ke menu utama jika memilih '0' di dalam fungsi ini
+            continue  # Melanjutkan setelah menampilkan kanji
         elif choice == "4":
             while True:
-                display_sub_menu_hk("hiragana dan katakana")
-                sub_choice = input("Pilih opsi (1-6): ").strip()
+                print(f"\n=== Hiragana dan Katakana Menu ===")
+                print("1. Huruf Acak")
+                print("2. Random Tanpa Pengulangan")
+                print("3. Huruf Group")
+                print("4. Huruf Group Acak")
+                print("0. Kembali")
+                sub_choice = input("Pilih opsi (1-4): ").strip()
 
                 if sub_choice == "1":
                     mode_acak_hk()
@@ -378,29 +379,46 @@ def main():
                     break
                 else:
                     print("\nPilihan tidak valid.")
-            continue
+            continue  # Melanjutkan setelah memilih opsi untuk Hiragana dan Katakana
         elif choice == "0":
             print("\nSampai jumpa!")
+            clear_screen()
             break
         else:
             print("\nPilihan tidak valid.")
             continue
 
+        # Pastikan nama_huruf sudah terdefinisi di sini
         while True:
-            display_sub_menu(nama_huruf)
-            sub_choice = input("Pilih opsi (1-6): ").strip()
+            # Menampilkan submenu untuk Hiragana atau Katakana
+            print(f"\n=== {nama_huruf.capitalize()} Menu ===")
+            print("1. Huruf Acak")
+            print("2. Vokal/Abjad")
+            print("3. Random Tanpa Pengulangan")
+            print("4. Huruf Group")
+            print("5. Huruf Group Acak")
+            print("0. Kembali")
+
+            sub_choice = input("Pilih opsi (1-5): ").strip()
 
             if sub_choice == "1":
                 mode_acak(group_data, nama_huruf)
             elif sub_choice == "2":
-                mode_vokal(group_data, nama_huruf)
+                print("1. Vokal Only")
+                print("2. Abjad Only")
+                pilih = input("Pilih opsi (1/2): ").strip()
+                if pilih == "1":
+                    mode_vokal(group_data, nama_huruf)
+                elif pilih == "2":
+                    mode_abjad(group_data, nama_huruf)
+                else:
+                    print("Pilihan tidak valid. Coba lagi...")
+                    continue
             elif sub_choice == "3":
-                mode_ditandai(nama_huruf)
-            elif sub_choice == "4":
                 mode_tanpa_pengulangan(group_data)
-            elif sub_choice == "5":
+            elif sub_choice == "4":
                 choose_category(group_data, is_random=False)
-            elif sub_choice == "6":
+            elif sub_choice == "5":
                 choose_category(group_data, is_random=True)
             elif sub_choice == "0":
                 break
