@@ -28,41 +28,216 @@ katakana_groups = {
     'wa': [('wa', 'ワ'), ('wo', 'ヲ'), ('n', 'ン')],
 }
 
-kanji = {
+kanji_n5 = {
     'angka': [
-        ('satu', '一'), ('dua', '二'), ('tiga', '三'), ('empat', '四'), ('lima', '五'),
-        ('enam', '六'), ('tujuh', '七'), ('delapan', '八'), ('sembilan', '九'), ('sepuluh', '十'),
-        ('seratus', '百'), ('seribu', '千'), ('sepuluh ribu', '万'), ('seratus juta', '億')
-    ],
-    'elemen': [
-        ('api', '火'), ('air', '水'), ('tanah', '土'), ('pohon', '木'), ('emas', '金'),
-        ('batu', '石'), ('angin', '風'), ('langit', '空'), ('petir', '雷')
+        { 'kanji': '一', 'onyomi': 'ichi, itsu', 'kunyomi': 'hito, hitotsu', 'arti': 'satu' },
+        { 'kanji': '二', 'onyomi': 'ni', 'kunyomi': 'futa, futatsu', 'arti': 'dua' },
+        { 'kanji': '三', 'onyomi': 'san', 'kunyomi': 'mi, mittsu', 'arti': 'tiga' },
+        { 'kanji': '四', 'onyomi': 'shi', 'kunyomi': 'yo, yon, yottsu', 'arti': 'empat' },
+        { 'kanji': '五', 'onyomi': 'go', 'kunyomi': 'itsu, itsutsu', 'arti': 'lima' },
+        { 'kanji': '六', 'onyomi': 'roku', 'kunyomi': 'mu, muttsu', 'arti': 'enam' },
+        { 'kanji': '七', 'onyomi': 'shichi', 'kunyomi': 'nana, nanatsu', 'arti': 'tujuh' },
+        { 'kanji': '八', 'onyomi': 'hachi', 'kunyomi': 'ya, yattsu', 'arti': 'delapan' },
+        { 'kanji': '九', 'onyomi': 'kyuu, ku', 'kunyomi': 'kokono, kokonotsu', 'arti': 'sembilan' },
+        { 'kanji': '十', 'onyomi': 'juu, ji', 'kunyomi': 'to, too', 'arti': 'sepuluh' },
+        { 'kanji': '百', 'onyomi': 'hyaku', 'kunyomi': 'momo', 'arti': 'seratus' },
+        { 'kanji': '千', 'onyomi': 'sen', 'kunyomi': 'chi', 'arti': 'seribu' },
+        { 'kanji': '万', 'onyomi': 'man, ban', 'kunyomi': '-', 'arti': 'sepuluh ribu' }
     ],
     'waktu': [
-        ('waktu', '時'), ('tahun', '年'), ('bulan', '月'), ('hari', '日'), ('minggu', '週'),
-        ('jam', '時'), ('menit', '分'), ('detik', '秒'), ('pagi', '朝'), ('siang', '昼'),
-        ('sore', '夕'), ('malam', '夜'), ('kemarin', '昨日'), ('besok', '明日')
-    ],
-    'keluarga': [
-        ('ayah', '父'), ('ibu', '母'), ('kakak laki-laki', '兄'), ('kakak perempuan', '姉'),
-        ('adik laki-laki', '弟'), ('adik perempuan', '妹'), ('keluarga', '家族'),
-        ('anak laki-laki', '息子'), ('anak perempuan', '娘'), ('kakek', '祖父'), ('nenek', '祖母')
-    ],
-    'sifat': [
-        ('besar', '大'), ('kecil', '小'), ('panjang', '長'), ('pendek', '短'), ('baru', '新'),
-        ('lama', '古'), ('baik', '良'), ('buruk', '悪'), ('kuat', '強'), ('lemah', '弱')
-    ],
-    'hewan': [
-        ('anjing', '犬'), ('kucing', '猫'), ('burung', '鳥'), ('kuda', '馬'), ('ikan', '魚'),
-        ('ular', '蛇'), ('serigala', '狼'), ('kelinci', '兎'), ('tikus', '鼠'), ('sapi', '牛')
+        { 'kanji': '日', 'onyomi': 'nichi, jitsu', 'kunyomi': 'hi, ka', 'arti': 'hari/matahari' },
+        { 'kanji': '月', 'onyomi': 'getsu, gatsu', 'kunyomi': 'tsuki', 'arti': 'bulan' },
+        { 'kanji': '年', 'onyomi': 'nen', 'kunyomi': 'toshi', 'arti': 'tahun' },
+        { 'kanji': '時', 'onyomi': 'ji', 'kunyomi': 'toki', 'arti': 'waktu' },
+        { 'kanji': '分', 'onyomi': 'bun, fun, bu', 'kunyomi': 'wa(keru), wa(karu)', 'arti': 'menit/bagian' },
+        { 'kanji': '午', 'onyomi': 'go', 'kunyomi': '-', 'arti': 'tengah hari' },
+        { 'kanji': '半', 'onyomi': 'han', 'kunyomi': 'naka(ba)', 'arti': 'setengah' }
     ],
     'alam': [
-        ('gunung', '山'), ('sungai', '川'), ('laut', '海'), ('hutan', '森'), ('bunga', '花'),
-        ('bulan', '月'), ('matahari', '日'), ('bintang', '星'), ('awan', '雲'), ('salju', '雪')
+        { 'kanji': '山', 'onyomi': 'san', 'kunyomi': 'yama', 'arti': 'gunung' },
+        { 'kanji': '川', 'onyomi': 'sen', 'kunyomi': 'kawa', 'arti': 'sungai' },
+        { 'kanji': '天', 'onyomi': 'ten', 'kunyomi': 'ame, ama', 'arti': 'langit' },
+        { 'kanji': '木', 'onyomi': 'moku, boku', 'kunyomi': 'ki, ko', 'arti': 'pohon' },
+        { 'kanji': '水', 'onyomi': 'sui', 'kunyomi': 'mizu', 'arti': 'air' },
+        { 'kanji': '火', 'onyomi': 'ka', 'kunyomi': 'hi', 'arti': 'api' },
+        { 'kanji': '土', 'onyomi': 'do, to', 'kunyomi': 'tsuchi', 'arti': 'tanah' }
     ],
-    'profesi': [
-        ('guru', '先生'), ('dokter', '医者'), ('petani', '農家'), ('polisi', '警察'), ('koki', '料理人'),
-        ('penulis', '作家'), ('seniman', '芸術家'), ('insinyur', '技師'), ('pedagang', '商人')
+    'keluarga': [
+        { 'kanji': '父', 'onyomi': 'fu', 'kunyomi': 'chichi', 'arti': 'ayah' },
+        { 'kanji': '母', 'onyomi': 'bo', 'kunyomi': 'haha', 'arti': 'ibu' },
+        { 'kanji': '子', 'onyomi': 'shi, su', 'kunyomi': 'ko', 'arti': 'anak' },
+        { 'kanji': '男', 'onyomi': 'dan, nan', 'kunyomi': 'otoko', 'arti': 'laki-laki' },
+        { 'kanji': '女', 'onyomi': 'jo, nyo, nyou', 'kunyomi': 'onna, me', 'arti': 'perempuan' }
+    ],
+    'lain-lain': [
+        { 'kanji': '何', 'onyomi': 'ka', 'kunyomi': 'nani, nan', 'arti': 'apa' },
+        { 'kanji': '名', 'onyomi': 'mei, myou', 'kunyomi': 'na', 'arti': 'nama' },
+        { 'kanji': '大', 'onyomi': 'dai, tai', 'kunyomi': 'oo(kii)', 'arti': 'besar' },
+        { 'kanji': '小', 'onyomi': 'shou', 'kunyomi': 'chi(sai), ko', 'arti': 'kecil' }
+    ]
+}
+
+kanji_n4 = {
+    'kata kerja': [
+        { 'kanji': '行', 'onyomi': 'kou, gyou', 'kunyomi': 'iku, okiru, yukou', 'arti': 'pergi' },
+        { 'kanji': '食', 'onyomi': 'shoku', 'kunyomi': 'taberu, kuto', 'arti': 'makan' },
+        { 'kanji': '飲', 'onyomi': 'in', 'kunyomi': 'nomu', 'arti': 'minum' },
+        { 'kanji': '見', 'onyomi': 'ken', 'kunyomi': 'miru, kakeru', 'arti': 'melihat' },
+        { 'kanji': '会', 'onyomi': 'kai', 'kunyomi': 'au', 'arti': 'bertemu' },
+        { 'kanji': '話', 'onyomi': 'wa', 'kunyomi': 'hanasu', 'arti': 'berbicara' },
+        { 'kanji': '聞', 'onyomi': 'bun', 'kunyomi': 'kiku', 'arti': 'mendengar' },
+        { 'kanji': '買', 'onyomi': 'bai', 'kunyomi': 'kau', 'arti': 'membeli' },
+        { 'kanji': '作', 'onyomi': 'saku', 'kunyomi': 'tsukuru', 'arti': 'membuat' },
+        { 'kanji': '使', 'onyomi': 'shi', 'kunyomi': 'tsukau', 'arti': 'menggunakan' }
+    ],
+    'waktu': [
+        { 'kanji': '時', 'onyomi': 'ji, shi', 'kunyomi': 'toki', 'arti': 'waktu' },
+        { 'kanji': '分', 'onyomi': 'bun, fun, bu', 'kunyomi': 'wa, wakeru', 'arti': 'menit, bagi' },
+        { 'kanji': '日', 'onyomi': 'nichi, jitsu', 'kunyomi': 'hi, ka', 'arti': 'hari, matahari' },
+        { 'kanji': '月', 'onyomi': 'getsu, gatsu', 'kunyomi': 'tsuki', 'arti': 'bulan' },
+        { 'kanji': '年', 'onyomi': 'nen', 'kunyomi': 'toshi', 'arti': 'tahun' },
+        { 'kanji': '今', 'onyomi': 'kon, kin', 'kunyomi': 'ima', 'arti': 'sekarang' },
+        { 'kanji': '週', 'onyomi': 'shuu', 'kunyomi': '', 'arti': 'minggu' },
+        { 'kanji': '前', 'onyomi': 'zen', 'kunyomi': 'mae', 'arti': 'sebelum, depan' },
+        { 'kanji': '後', 'onyomi': 'go, kou', 'kunyomi': 'ato, ushiro', 'arti': 'setelah, belakang' },
+        { 'kanji': '時', 'onyomi': 'ji', 'kunyomi': 'toki', 'arti': 'waktu' }
+    ],
+    'anggaran & angka': [
+        { 'kanji': '百', 'onyomi': 'hyaku', 'kunyomi': '', 'arti': 'seratus' },
+        { 'kanji': '千', 'onyomi': 'sen', 'kunyomi': '', 'arti': 'seribu' },
+        { 'kanji': '万', 'onyomi': 'man', 'kunyomi': '', 'arti': 'sepuluh ribu' },
+        { 'kanji': '億', 'onyomi': 'oku', 'kunyomi': '', 'arti': 'seratus juta' }
+    ],
+    'tempat & arah': [
+        { 'kanji': '上', 'onyomi': 'jou, shou', 'kunyomi': 'ue, kami', 'arti': 'atas' },
+        { 'kanji': '下', 'onyomi': 'ka, ge', 'kunyomi': 'shita, moto', 'arti': 'bawah' },
+        { 'kanji': '中', 'onyomi': 'chuu, juu', 'kunyomi': 'naka', 'arti': 'dalam, tengah' },
+        { 'kanji': '外', 'onyomi': 'gai, ge', 'kunyomi': 'soto, hoka', 'arti': 'luar' },
+        { 'kanji': '東', 'onyomi': 'tou', 'kunyomi': 'higashi', 'arti': 'timur' },
+        { 'kanji': '西', 'onyomi': 'sei, sai', 'kunyomi': 'nishi', 'arti': 'barat' },
+        { 'kanji': '南', 'onyomi': 'nan', 'kunyomi': 'minami', 'arti': 'selatan' },
+        { 'kanji': '北', 'onyomi': 'hoku', 'kunyomi': 'kita', 'arti': 'utara' }
+    ],
+    'benda & benda lainnya': [
+        { 'kanji': '車', 'onyomi': 'sha', 'kunyomi': 'kuruma', 'arti': 'mobil' },
+        { 'kanji': '電', 'onyomi': 'den', 'kunyomi': '', 'arti': 'listrik' },
+        { 'kanji': '電話', 'onyomi': 'denwa', 'kunyomi': '', 'arti': 'telepon' },
+        { 'kanji': '名', 'onyomi': 'mei, myou', 'kunyomi': 'na', 'arti': 'nama' },
+        { 'kanji': '白', 'onyomi': 'haku', 'kunyomi': 'shiro', 'arti': 'putih' },
+        { 'kanji': '黒', 'onyomi': 'koku', 'kunyomi': 'kuro', 'arti': 'hitam' },
+        { 'kanji': '赤', 'onyomi': 'seki, shaku', 'kunyomi': 'aka', 'arti': 'merah' },
+        { 'kanji': '青', 'onyomi': 'sei, shou', 'kunyomi': 'ao', 'arti': 'biru' }
+    ]
+}
+
+kanji_n3 = {
+    'kata kerja': [
+        {'kanji': '始', 'onyomi': 'shi', 'kunyomi': 'haji', 'arti': 'memulai'},
+        {'kanji': '終', 'onyomi': 'shuu', 'kunyomi': 'owari, owaru', 'arti': 'selesai'},
+        {'kanji': '探', 'onyomi': 'tan', 'kunyomi': 'sagasu', 'arti': 'mencari'},
+        {'kanji': '努力', 'onyomi': 'doryoku', 'kunyomi': '', 'arti': 'usaha keras'},
+        {'kanji': '運', 'onyomi': 'un', 'kunyomi': 'un', 'arti': 'keberuntungan'},
+        {'kanji': '笑', 'onyomi': 'shou', 'kunyomi': 'warau', 'arti': 'tersenyum'},
+        {'kanji': '住', 'onyomi': 'juu', 'kunyomi': 'sumu', 'arti': 'tinggal'},
+        {'kanji': '待', 'onyomi': 'tai', 'kunyomi': 'matsu', 'arti': 'menunggu'},
+        {'kanji': '止', 'onyomi': 'shi', 'kunyomi': 'tomeru', 'arti': 'berhenti'}
+    ],
+    'benda': [
+        {'kanji': '図', 'onyomi': 'zu', 'kunyomi': 'e', 'arti': 'gambar, diagram'},
+        {'kanji': '鍵', 'onyomi': 'ken', 'kunyomi': 'kagi', 'arti': 'kunci'},
+        {'kanji': '袋', 'onyomi': 'tai, taku', 'kunyomi': 'fukuro', 'arti': 'tas, kantong'},
+        {'kanji': '通', 'onyomi': 'tsuu', 'kunyomi': 'tooru, tooshite', 'arti': 'melalui'},
+        {'kanji': '環', 'onyomi': 'kan', 'kunyomi': 'wa', 'arti': 'lingkaran, lingkungan'},
+        {'kanji': '運転', 'onyomi': 'unten', 'kunyomi': '', 'arti': 'mengemudi'},
+        {'kanji': '洗', 'onyomi': 'sen', 'kunyomi': 'arau', 'arti': 'mencuci'}
+    ],
+    'waktu': [
+        {'kanji': '年', 'onyomi': 'nen', 'kunyomi': 'toshi', 'arti': 'tahun'},
+        {'kanji': '月', 'onyomi': 'getsu, gatsu', 'kunyomi': 'tsuki', 'arti': 'bulan'},
+        {'kanji': '日', 'onyomi': 'nichi, jitsu', 'kunyomi': 'hi, ka', 'arti': 'hari, matahari'},
+        {'kanji': '週', 'onyomi': 'shuu', 'kunyomi': '', 'arti': 'minggu'},
+        {'kanji': '分', 'onyomi': 'bun, fun', 'kunyomi': 'wa', 'arti': 'menit, bagi'},
+        {'kanji': '時', 'onyomi': 'ji', 'kunyomi': 'toki', 'arti': 'waktu, jam'},
+        {'kanji': '午', 'onyomi': 'go', 'kunyomi': '', 'arti': 'siang'},
+        {'kanji': '朝', 'onyomi': 'chou', 'kunyomi': 'asa', 'arti': 'pagi'}
+    ],
+    'sifat': [
+        {'kanji': '明', 'onyomi': 'mei', 'kunyomi': 'akarui', 'arti': 'terang, cerah'},
+        {'kanji': '暗', 'onyomi': 'an', 'kunyomi': 'kurai', 'arti': 'gelap'},
+        {'kanji': '高', 'onyomi': 'kou', 'kunyomi': 'takai', 'arti': 'tinggi'},
+        {'kanji': '低', 'onyomi': 'tei', 'kunyomi': 'hikui', 'arti': 'rendah'},
+        {'kanji': '強', 'onyomi': 'kyou, gou', 'kunyomi': 'tsuyoi', 'arti': 'kuat'},
+        {'kanji': '弱', 'onyomi': 'jaku', 'kunyomi': 'yowai', 'arti': 'lemah'},
+        {'kanji': '広', 'onyomi': 'kou', 'kunyomi': 'hiro', 'arti': 'luas'}
+    ],
+    'warna': [
+        {'kanji': '青', 'onyomi': 'sei', 'kunyomi': 'ao', 'arti': 'biru'},
+        {'kanji': '赤', 'onyomi': 'seki', 'kunyomi': 'aka', 'arti': 'merah'},
+        {'kanji': '白', 'onyomi': 'haku', 'kunyomi': 'shiro', 'arti': 'putih'},
+        {'kanji': '黒', 'onyomi': 'koku', 'kunyomi': 'kuro', 'arti': 'hitam'},
+        {'kanji': '茶', 'onyomi': 'cha', 'kunyomi': '', 'arti': 'cokelat'}
+    ]
+}
+
+kanji_n2 = {
+    'kata kerja': [
+        {'kanji': '理解', 'onyomi': 'rikai', 'kunyomi': '', 'arti': 'memahami'},
+        {'kanji': '結婚', 'onyomi': 'kekkon', 'kunyomi': '', 'arti': 'pernikahan'},
+        {'kanji': '送', 'onyomi': 'sou', 'kunyomi': 'okuru', 'arti': 'mengirim'},
+        {'kanji': '達', 'onyomi': 'tatsu', 'kunyomi': '', 'arti': 'mencapai'},
+        {'kanji': '許', 'onyomi': 'kyo', 'kunyomi': 'yurusu', 'arti': 'mengizinkan'}
+    ],
+    'benda': [
+        {'kanji': '戦争', 'onyomi': 'sensou', 'kunyomi': '', 'arti': 'perang'},
+        {'kanji': '都市', 'onyomi': 'toshi', 'kunyomi': '', 'arti': 'kota'},
+        {'kanji': '法律', 'onyomi': 'houritsu', 'kunyomi': '', 'arti': 'hukum'},
+        {'kanji': '風景', 'onyomi': 'fuukei', 'kunyomi': '', 'arti': 'pemandangan'},
+        {'kanji': '部屋', 'onyomi': 'heya', 'kunyomi': '', 'arti': 'ruangan'}
+    ],
+    'waktu': [
+        {'kanji': '未来', 'onyomi': 'mirai', 'kunyomi': '', 'arti': 'masa depan'},
+        {'kanji': '時間', 'onyomi': 'jikan', 'kunyomi': '', 'arti': 'waktu'},
+        {'kanji': '永遠', 'onyomi': 'eien', 'kunyomi': '', 'arti': 'selamanya'},
+        {'kanji': '今度', 'onyomi': 'kondo', 'kunyomi': '', 'arti': 'lain waktu'},
+        {'kanji': '歴史', 'onyomi': 'rekishi', 'kunyomi': '', 'arti': 'sejarah'}
+    ],
+    'sifat': [
+        {'kanji': '優しい', 'onyomi': 'yuu', 'kunyomi': 'yasashii', 'arti': 'baik, lembut'},
+        {'kanji': '恐ろしい', 'onyomi': 'kyo', 'kunyomi': 'osoroshii', 'arti': 'menakutkan'},
+        {'kanji': '明確', 'onyomi': 'meikaku', 'kunyomi': '', 'arti': 'jelas'},
+        {'kanji': '深い', 'onyomi': 'shin', 'kunyomi': 'fukai', 'arti': 'dalam'},
+        {'kanji': '確実', 'onyomi': 'kakujitsu', 'kunyomi': '', 'arti': 'pasti'}
+    ]
+}
+
+kanji_n1 = {
+    'kata kerja': [
+        {'kanji': '改善', 'onyomi': 'kaizen', 'kunyomi': '', 'arti': 'perbaikan'},
+        {'kanji': '維持', 'onyomi': 'iji', 'kunyomi': '', 'arti': 'pemeliharaan'},
+        {'kanji': '承知', 'onyomi': 'shouchi', 'kunyomi': 'shiru', 'arti': 'menerima'},
+        {'kanji': '観察', 'onyomi': 'kansatsu', 'kunyomi': '', 'arti': 'mengamati'},
+        {'kanji': '選択', 'onyomi': 'sentaku', 'kunyomi': '', 'arti': 'memilih'}
+    ],
+    'benda': [
+        {'kanji': '領土', 'onyomi': 'ryoudou', 'kunyomi': '', 'arti': 'wilayah'},
+        {'kanji': '物理', 'onyomi': 'butsuri', 'kunyomi': '', 'arti': 'fisika'},
+        {'kanji': '優秀', 'onyomi': 'yuushuu', 'kunyomi': '', 'arti': 'unggul'},
+        {'kanji': '文化', 'onyomi': 'bunka', 'kunyomi': '', 'arti': 'budaya'},
+        {'kanji': '命令', 'onyomi': 'meirei', 'kunyomi': '', 'arti': 'perintah'}
+    ],
+    'waktu': [
+        {'kanji': '時間帯', 'onyomi': 'jikantai', 'kunyomi': '', 'arti': 'waktu tertentu'},
+        {'kanji': '瞬間', 'onyomi': 'shunkan', 'kunyomi': '', 'arti': 'momen'},
+        {'kanji': '年代', 'onyomi': 'nendai', 'kunyomi': '', 'arti': 'periode, dekade'},
+        {'kanji': '即時', 'onyomi': 'sokuji', 'kunyomi': '', 'arti': 'segera'},
+        {'kanji': '長期', 'onyomi': 'chouki', 'kunyomi': '', 'arti': 'jangka panjang'}
+    ],
+    'sifat': [
+        {'kanji': '自信', 'onyomi': 'jishin', 'kunyomi': '', 'arti': 'percaya diri'},
+        {'kanji': '的確', 'onyomi': 'tekikaku', 'kunyomi': '', 'arti': 'tepat'},
+        {'kanji': '意義', 'onyomi': 'igi', 'kunyomi': '', 'arti': 'makna'},
+        {'kanji': '進歩', 'onyomi': 'shinpo', 'kunyomi': '', 'arti': 'kemajuan'},
+        {'kanji': '徹底', 'onyomi': 'tettei', 'kunyomi': '', 'arti': 'penyelesaian menyeluruh'}
     ]
 }
 
@@ -247,31 +422,61 @@ def choose_category_hk(is_random):
             return
         display_group_hk(group, is_random)
 
-def tampilkan_kanji(Kanji):
+kanji_levels = {
+    'N5': kanji_n5,
+    'N4': kanji_n4,
+    'N3': kanji_n3,
+    'N2': kanji_n2,
+    'N1': kanji_n1
+}
+
+
+def tampilkan_kanji():
     while True:
         clear_screen()
-        print("\n=== Pilih Kategori Kanji ===")
-        # Menampilkan daftar kategori secara dinamis
-        kategori_set = list(kanji.keys())  # Mengambil kategori unik
+        print("\n=== Pilih Level Kanji ===")
+        print("1. N5")
+        print("2. N4")
+        print("3. N3")
+        print("4. N2")
+        print("5. N1")
+        print("0. Kembali")
+
+        try:
+            pilihan_level = int(input("\nPilih level (0-5): ").strip())
+        except ValueError:
+            print("Input tidak valid. Masukkan angka.")
+            continue
+
+        if pilihan_level == 0:
+            break
+        elif 1 <= pilihan_level <= 5:
+            level_terpilih = f'N{5 - pilihan_level}'  # Mengubah pilihan level menjadi N5, N4, dll
+            kanji_terpilih = kanji_levels.get(level_terpilih)
+        else:
+            print("Pilihan tidak valid.")
+            continue
+
+        kategori_set = list(kanji_terpilih.keys())  # Mengambil kategori unik
         for idx, kategori in enumerate(kategori_set, 1):
             print(f"{idx}. {kategori}")
         print(f"{len(kategori_set) + 1}. Tampilkan Semua")
         print("0. Kembali")
 
         try:
-            pilihan = int(input("\nPilih kategori (0-{}): ".format(len(kategori_set) + 1)).strip())
+            pilihan_kategori = int(input("\nPilih kategori (0-{}): ".format(len(kategori_set) + 1)).strip())
         except ValueError:
             print("Input tidak valid. Masukkan angka.")
             continue
 
-        if pilihan == 0:
+        if pilihan_kategori == 0:
             break
-        elif 1 <= pilihan <= len(kategori_set):
-            kategori_terpilih = kategori_set[pilihan - 1]
-            kanji_terpilih = kanji[kategori_terpilih]
-        elif pilihan == len(kategori_set) + 1:
+        elif 1 <= pilihan_kategori <= len(kategori_set):
+            kategori_terpilih = kategori_set[pilihan_kategori - 1]
+            kanji_terpilih_kategori = kanji_terpilih[kategori_terpilih]
+        elif pilihan_kategori == len(kategori_set) + 1:
             kategori_terpilih = "Semua"
-            kanji_terpilih = [kanji_item for items in kanji.values() for kanji_item in items]
+            kanji_terpilih_kategori = [kanji_item for items in kanji_terpilih.values() for kanji_item in items]
         else:
             print("Pilihan tidak valid.")
             continue
@@ -290,19 +495,21 @@ def tampilkan_kanji(Kanji):
         if opsi_tampil == 0:
             return
         elif opsi_tampil == 1:
-            hasil = kanji_terpilih
+            hasil = kanji_terpilih_kategori
         elif opsi_tampil == 2:
-            hasil = random.sample(kanji_terpilih, len(kanji_terpilih))
+            hasil = random.sample(kanji_terpilih_kategori, len(kanji_terpilih_kategori))
         else:
             print("Pilihan tidak valid.")
             continue
 
         # Menampilkan hasil satu persatu
-        for romaji, karakter in hasil:
+        for kanji in hasil:
             clear_screen()
-            print("\n")
-            print(f"{romaji} - {karakter}")
-            stop = input("Tekan Enter untuk lanjut atau ketik 'q' untuk berhenti: ")
+            print(f"Kanji: {kanji['kanji']}")
+            print(f"Onyomi: {kanji['onyomi']}")
+            print(f"Kunyomi: {kanji['kunyomi']}")
+            print(f"Arti: {kanji['arti']}")
+            stop = input("\nTekan Enter untuk lanjut atau ketik 'q' untuk berhenti: ")
             if stop.lower() == 'q':
                 print("Proses berhenti.")
                 break
@@ -357,7 +564,7 @@ def main():
             group_data = katakana_groups
             nama_huruf = "katakana"
         elif choice == "3":  # Jika pilihan adalah Kanji
-            tampilkan_kanji(kanji)  # Akan kembali ke menu utama jika memilih '0' di dalam fungsi ini
+            tampilkan_kanji()  # Akan kembali ke menu utama jika memilih '0' di dalam fungsi ini
             continue  # Melanjutkan setelah menampilkan kanji
         elif choice == "4":
             while True:
