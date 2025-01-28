@@ -203,7 +203,7 @@ def display_group(group, language_groups, is_random=False):
 
     for romaji, kana in items:
         clear_screen()
-        print(f"{romaji} - {kana}")
+        print(f"Huruf: {romaji} - {kana}")
         input("Tekan Enter untuk melanjutkan...")
 
 def display_group_hk(group, is_random=False):
@@ -222,7 +222,7 @@ def display_group_hk(group, is_random=False):
 
     for romaji, h_char, k_char in combined:
         clear_screen()
-        print(f"{romaji} - {h_char} (Hiragana), {k_char} (Katakana)")
+        print(f"Huruf: {romaji} - {h_char} (Hiragana), {k_char} (Katakana)")
         input("Tekan Enter untuk melanjutkan...")
 
 def choose_category(language_groups, is_random):
@@ -230,6 +230,7 @@ def choose_category(language_groups, is_random):
         clear_screen()
         print("Masukkan salah satu kategori berikut:")
         print("a, ka, sa, ta, na, ha, ma, ya, ra, wa")
+        print("Ketik 'q' untuk kembali")
         group = input("\nMasukkan kategori: ").strip().lower()
         if group in ["q"]:
             return
@@ -240,6 +241,7 @@ def choose_category_hk(is_random):
         clear_screen()
         print("Masukkan salah satu kategori berikut:")
         print("a, ka, sa, ta, na, ha, ma, ya, ra, wa")
+        print("Ketik 'q' untuk kembali")
         group = input("\nMasukkan kategori: ").strip().lower()
         if group in ["q"]:
             return
